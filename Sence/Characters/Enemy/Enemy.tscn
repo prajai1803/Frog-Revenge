@@ -1,0 +1,204 @@
+[gd_scene load_steps=46 format=2]
+
+[ext_resource path="res://Assets/GFX/Vfx Guy/Idle/tile006.png" type="Texture" id=1]
+[ext_resource path="res://Assets/GFX/Vfx Guy/Idle/tile005.png" type="Texture" id=2]
+[ext_resource path="res://Assets/GFX/Vfx Guy/Idle/tile003.png" type="Texture" id=3]
+[ext_resource path="res://Assets/GFX/Vfx Guy/Idle/tile008.png" type="Texture" id=4]
+[ext_resource path="res://Assets/GFX/Vfx Guy/Idle/tile001.png" type="Texture" id=5]
+[ext_resource path="res://Assets/GFX/Vfx Guy/Idle/tile009.png" type="Texture" id=6]
+[ext_resource path="res://Assets/GFX/Vfx Guy/Idle/tile007.png" type="Texture" id=7]
+[ext_resource path="res://Assets/GFX/Vfx Guy/Idle/tile002.png" type="Texture" id=8]
+[ext_resource path="res://Assets/GFX/Vfx Guy/Idle/tile004.png" type="Texture" id=9]
+[ext_resource path="res://Assets/GFX/Vfx Guy/Idle/tile000.png" type="Texture" id=10]
+[ext_resource path="res://Assets/GFX/Vfx Guy/Idle/tile010.png" type="Texture" id=11]
+[ext_resource path="res://Assets/GFX/Vfx Guy/Hit/tile000.png" type="Texture" id=12]
+[ext_resource path="res://Assets/GFX/Vfx Guy/Run/tile003.png" type="Texture" id=13]
+[ext_resource path="res://Assets/GFX/Vfx Guy/Hit/tile004.png" type="Texture" id=14]
+[ext_resource path="res://Assets/GFX/Vfx Guy/Run/tile000.png" type="Texture" id=15]
+[ext_resource path="res://Assets/GFX/Vfx Guy/Hit/tile005.png" type="Texture" id=16]
+[ext_resource path="res://Assets/GFX/Vfx Guy/Run/tile007.png" type="Texture" id=17]
+[ext_resource path="res://Assets/GFX/Vfx Guy/Run/tile010.png" type="Texture" id=18]
+[ext_resource path="res://Assets/GFX/Vfx Guy/Run/tile009.png" type="Texture" id=19]
+[ext_resource path="res://Assets/GFX/Vfx Guy/Run/tile004.png" type="Texture" id=20]
+[ext_resource path="res://Assets/GFX/Vfx Guy/Run/tile002.png" type="Texture" id=21]
+[ext_resource path="res://Assets/GFX/Vfx Guy/Run/tile001.png" type="Texture" id=22]
+[ext_resource path="res://Assets/GFX/Vfx Guy/Hit/tile001.png" type="Texture" id=23]
+[ext_resource path="res://Assets/GFX/Vfx Guy/Run/tile005.png" type="Texture" id=24]
+[ext_resource path="res://Assets/GFX/Vfx Guy/Run/tile006.png" type="Texture" id=25]
+[ext_resource path="res://Assets/GFX/Vfx Guy/Hit/tile003.png" type="Texture" id=26]
+[ext_resource path="res://Assets/GFX/Vfx Guy/Run/tile011.png" type="Texture" id=27]
+[ext_resource path="res://Assets/GFX/Vfx Guy/Hit/tile002.png" type="Texture" id=28]
+[ext_resource path="res://Assets/GFX/Vfx Guy/Run/tile008.png" type="Texture" id=29]
+[ext_resource path="res://Assets/GFX/Vfx Guy/Hit/tile006.png" type="Texture" id=30]
+[ext_resource path="res://Sence/Characters/Enemy/Enemy.gd" type="Script" id=31]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 10 ), ExtResource( 5 ), ExtResource( 8 ), ExtResource( 3 ), ExtResource( 9 ), ExtResource( 2 ), ExtResource( 1 ), ExtResource( 7 ), ExtResource( 4 ), ExtResource( 6 ), ExtResource( 11 ) ],
+"loop": true,
+"name": "idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 15 ), ExtResource( 22 ), ExtResource( 21 ), ExtResource( 13 ), ExtResource( 20 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 17 ), ExtResource( 29 ), ExtResource( 19 ), ExtResource( 18 ), ExtResource( 27 ) ],
+"loop": true,
+"name": "run",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 12 ), ExtResource( 23 ), ExtResource( 28 ), ExtResource( 26 ), ExtResource( 14 ), ExtResource( 16 ), ExtResource( 30 ) ],
+"loop": true,
+"name": "hit",
+"speed": 5.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 13.579
+height = 6.56003
+
+[sub_resource type="Animation" id=3]
+resource_name = "hit"
+length = 0.32
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "hit" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AnimatedSprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6 ]
+}
+
+[sub_resource type="Animation" id=4]
+length = 0.65
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "idle" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AnimatedSprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6 ]
+}
+
+[sub_resource type="Animation" id=5]
+length = 0.55
+loop = true
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "run" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AnimatedSprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 8, 9, 10, 11 ]
+}
+
+[sub_resource type="AnimationNodeAnimation" id=6]
+animation = "hit"
+
+[sub_resource type="AnimationNodeAnimation" id=7]
+animation = "idle"
+
+[sub_resource type="AnimationNodeAnimation" id=8]
+animation = "run"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=9]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=10]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=11]
+
+[sub_resource type="AnimationNodeStateMachine" id=12]
+states/hit/node = SubResource( 6 )
+states/hit/position = Vector2( 261, 155 )
+states/idle/node = SubResource( 7 )
+states/idle/position = Vector2( 365, 39 )
+states/run/node = SubResource( 8 )
+states/run/position = Vector2( 513, 120 )
+transitions = [ "run", "hit", SubResource( 9 ), "idle", "hit", SubResource( 10 ), "idle", "run", SubResource( 11 ) ]
+start_node = "idle"
+end_node = "hit"
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=13]
+
+[sub_resource type="CircleShape2D" id=14]
+radius = 25.6406
+
+[node name="Enemy" type="RigidBody2D"]
+script = ExtResource( 31 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+scale = Vector2( 1.5, 1.5 )
+frames = SubResource( 1 )
+animation = "idle"
+frame = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 1.5892, 7.10471 )
+shape = SubResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/hit = SubResource( 3 )
+anims/idle = SubResource( 4 )
+anims/run = SubResource( 5 )
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource( 12 )
+anim_player = NodePath("../AnimationPlayer")
+active = true
+parameters/playback = SubResource( 13 )
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( 0.66819, 6.23629 )
+shape = SubResource( 14 )
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]

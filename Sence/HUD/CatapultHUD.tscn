@@ -1,0 +1,46 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Assets/GFX/UI/Button_Normal.png" type="Texture" id=2]
+[ext_resource path="res://Assets/GFX/UI/Button_Pressed.png" type="Texture" id=3]
+[ext_resource path="res://Assets/GFX/UI/Button_Pressed_UP.png" type="Texture" id=4]
+[ext_resource path="res://Assets/GFX/UI/Button_Normal_UP.png" type="Texture" id=5]
+
+[node name="CataputlHUD" type="CanvasLayer"]
+
+[node name="Control" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -147.0
+margin_right = 283.0
+rect_scale = Vector2( 0.5, 0.5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Left" type="TouchScreenButton" parent="Control/HBoxContainer"]
+position = Vector2( 10, 30 )
+normal = ExtResource( 2 )
+pressed = ExtResource( 3 )
+action = "Left"
+
+[node name="Hit" type="TouchScreenButton" parent="Control/HBoxContainer"]
+position = Vector2( 260, 0 )
+scale = Vector2( 1.5, 1.5 )
+normal = ExtResource( 5 )
+pressed = ExtResource( 4 )
+action = "Hit"
+
+[node name="Right" type="TouchScreenButton" parent="Control/HBoxContainer"]
+position = Vector2( 700, 30 )
+scale = Vector2( -1, 1 )
+normal = ExtResource( 2 )
+pressed = ExtResource( 3 )
+action = "Right"

@@ -1,0 +1,129 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Sence/Terrain/Terrain1.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Sence/Terrain/TerrainStucture.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Sence/Machine/Catapult.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Sence/Characters/Frog/Frog.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Sence/HUD/CatapultHUD.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Sence/Tutorial/TutorialCatapult.gd" type="Script" id=6]
+[ext_resource path="res://Assets/Fonts/flappyfont.TTF" type="DynamicFontData" id=7]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 10, 240.27 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 32
+outline_size = 2
+font_data = ExtResource( 7 )
+
+[sub_resource type="Animation" id=3]
+resource_name = "Transition"
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect4:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 0.894118, 1, 0.396078, 1 ) ]
+}
+
+[node name="TutorialCatapult" type="Node2D"]
+script = ExtResource( 6 )
+
+[node name="BackGround" type="Node2D" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="BackGround"]
+margin_left = -3.0
+margin_top = 528.0
+margin_right = 384.0
+margin_bottom = 857.0
+color = Color( 0.282353, 0.231373, 0.027451, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect2" type="ColorRect" parent="BackGround"]
+margin_left = 3.0
+margin_top = 4.25084
+margin_right = 363.0
+margin_bottom = 521.251
+color = Color( 1, 0.980392, 0.545098, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect3" type="ColorRect" parent="BackGround"]
+margin_left = 322.0
+margin_top = 479.0
+margin_right = 369.0
+margin_bottom = 522.0
+color = Color( 0.431373, 0.376471, 0.027451, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tileset" type="Node2D" parent="."]
+
+[node name="TerrainStucture" parent="Tileset" instance=ExtResource( 2 )]
+tile_data = PoolIntArray( 1572866, 0, 0, 1835025, 15, 0, 1966091, 10, 0, 1966094, 10, 0 )
+
+[node name="Ground" parent="Tileset" instance=ExtResource( 1 )]
+tile_data = PoolIntArray( 262144, 0, 0, 262145, 0, 0, 262146, 0, 0, 1048576, 1, 0, 1048577, 0, 0, 1048578, 0, 0, 1048579, 0, 0, 1048580, 0, 0, 1048581, 0, 0, 1048582, 0, 0, 1048583, 0, 0, 1048584, 0, 0, 1048585, 0, 0, 1048586, 0, 0, 1048587, 1, 0, 1048588, 1, 0, 1114112, 1, 0, 1114113, 1, 0, 1114114, 1, 0, 1114115, 1, 0, 1114116, 1, 0, 1114117, 1, 0, 1114118, 1, 0, 1114119, 1, 0, 1114120, 1, 0, 1114121, 1, 0, 1114122, 1, 0, 1114123, 1, 0, 1179648, 1, 0, 1179649, 1, 0, 1179650, 1, 0, 1179651, 1, 0, 1179652, 1, 0, 1179653, 1, 0, 1179654, 1, 0, 1179655, 1, 0, 1179656, 1, 0, 1179657, 1, 0, 1179658, 1, 0, 1179659, 1, 0, 1245184, 1, 0, 1245185, 1, 0, 1245186, 1, 0, 1245187, 1, 0, 1245188, 1, 0, 1245189, 1, 0, 1245190, 1, 0, 1245191, 1, 0, 1245192, 1, 0, 1245193, 1, 0, 1245194, 1, 0, 1245195, 1, 0, 1310720, 1, 0, 1310721, 1, 0, 1310722, 1, 0, 1310723, 1, 0, 1310724, 1, 0, 1310725, 1, 0, 1310726, 1, 0, 1310727, 1, 0, 1310728, 1, 0, 1310729, 1, 0, 1310730, 1, 0, 1310731, 1, 0, 1376256, 1, 0, 1376257, 1, 0, 1376258, 1, 0, 1376259, 1, 0, 1376260, 1, 0, 1376261, 1, 0, 1376262, 1, 0, 1376263, 1, 0, 1376264, 1, 0, 1376265, 1, 0, 1376266, 1, 0, 1376267, 1, 0, 1441792, 1, 0, 1441793, 1, 0, 1441794, 1, 0, 1441795, 1, 0, 1441796, 1, 0, 1441797, 1, 0, 1441798, 1, 0, 1441799, 1, 0, 1441800, 1, 0, 1441801, 1, 0, 1441802, 1, 0, 1441803, 1, 0, 1507328, 1, 0, 1507329, 1, 0, 1507330, 1, 0, 1507331, 1, 0, 1507332, 1, 0, 1507333, 1, 0, 1507334, 1, 0, 1507335, 1, 0, 1507336, 1, 0, 1507337, 1, 0, 1507338, 1, 0, 1507339, 1, 0, 1572864, 1, 0, 1572865, 1, 0, 1572866, 1, 0, 1572867, 1, 0, 1572868, 1, 0, 1572869, 1, 0, 1572870, 1, 0, 1572871, 1, 0, 1572872, 1, 0, 1572873, 1, 0, 1572874, 1, 0, 1572875, 1, 0, 1638400, 1, 0, 1638401, 1, 0, 1638402, 1, 0, 1638403, 1, 0, 1638404, 1, 0, 1638405, 1, 0, 1638406, 1, 0, 1638407, 1, 0, 1638408, 1, 0, 1638409, 1, 0, 1638410, 1, 0, 1638411, 1, 0, 1703936, 1, 0, 1703937, 1, 0, 1703938, 1, 0, 1703939, 1, 0, 1703940, 1, 0, 1703941, 1, 0, 1703942, 1, 0, 1703943, 1, 0, 1703944, 1, 0, 1703945, 1, 0, 1703946, 1, 0, 1703947, 1, 0 )
+
+[node name="Wall" parent="Tileset" instance=ExtResource( 1 )]
+tile_data = PoolIntArray( 0, 1, 0, 11, 1, 0, 65536, 1, 0, 65547, 1, 0, 327680, 1, 0, 393216, 1, 0, 458752, 1, 0, 524288, 1, 0, 589824, 1, 0, 655360, 1, 0, 720896, 1, 0, 786432, 1, 0, 851968, 1, 0, 851979, 5, 0, 917504, 1, 0, 917514, 5, 0, 917515, 4, 0, 983040, 1, 0, 983050, 4, 0, 983051, 1, 0, 983052, 1, 0, 1048586, 1, 0 )
+
+[node name="Catapult" parent="." instance=ExtResource( 3 )]
+position = Vector2( 190, 485.782 )
+
+[node name="Frog" parent="." instance=ExtResource( 4 )]
+position = Vector2( 45.2549, 87.6813 )
+
+[node name="ColorRect4" type="ColorRect" parent="."]
+margin_right = 392.0
+margin_bottom = 860.0
+color = Color( 0, 0, 0, 0 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CataputlHUD" parent="." instance=ExtResource( 5 )]
+
+[node name="CrossLine" type="Area2D" parent="."]
+position = Vector2( 361.927, 152.39 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CrossLine"]
+position = Vector2( 37.8133, 59.0444 )
+shape = SubResource( 1 )
+
+[node name="Label" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 73.0
+margin_top = 290.502
+margin_right = 299.0
+margin_bottom = 359.502
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.211765, 0.552941, 0.0352941, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "Game START IN
+3"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Transition = SubResource( 3 )
+
+[connection signal="body_entered" from="CrossLine" to="." method="_on_CrossLine_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

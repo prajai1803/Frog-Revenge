@@ -1,0 +1,97 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+_global_script_classes=[ {
+"base": "Reference",
+"class": "Events",
+"language": "GDScript",
+"path": "res://Scripts/Events.gd"
+}, {
+"base": "RigidBody2D",
+"class": "Frog",
+"language": "GDScript",
+"path": "res://Sence/Characters/Frog/Frog.gd"
+}, {
+"base": "RigidBody2D",
+"class": "TutorialFrog",
+"language": "GDScript",
+"path": "res://Sence/Tutorial/TutorialFrog.gd"
+} ]
+_global_script_class_icons={
+"Events": "",
+"Frog": "",
+"TutorialFrog": ""
+}
+
+[application]
+
+config/name="Frog Revenge"
+run/main_scene="res://Sence/Menu/StartMenu.tscn"
+config/icon="res://icon.png"
+
+[autoload]
+
+Global="*res://Scripts/Global.gd"
+
+[display]
+
+window/size/width=360
+window/size/height=640
+window/size/test_width=360
+window/size/test_height=720
+window/handheld/orientation="portrait"
+window/stretch/mode="2d"
+window/stretch/aspect="keep_width"
+
+[global]
+
+Windows=false
+Window=false
+
+[input]
+
+Left={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":65,"unicode":0,"echo":false,"script":null)
+ ]
+}
+Right={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":68,"unicode":0,"echo":false,"script":null)
+ ]
+}
+Hit={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":32,"unicode":0,"echo":false,"script":null)
+ ]
+}
+
+[input_devices]
+
+pointing/emulate_touch_from_mouse=true
+
+[layer_names]
+
+2d_physics/layer_1="Frog"
+2d_physics/layer_2="Ground"
+2d_physics/layer_3="Wall"
+2d_physics/layer_4="Enemy"
+2d_physics/layer_5="Projectile"
+
+[physics]
+
+common/enable_pause_aware_picking=true
+
+[rendering]
+
+quality/driver/driver_name="GLES2"
+vram_compression/import_etc=true
+vram_compression/import_etc2=false
+environment/default_environment="res://default_env.tres"
