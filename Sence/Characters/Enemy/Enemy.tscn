@@ -169,16 +169,20 @@ end_node = "hit"
 [sub_resource type="AnimationNodeStateMachinePlayback" id=13]
 
 [sub_resource type="CircleShape2D" id=14]
-radius = 25.6406
+radius = 23.427
 
-[node name="Enemy" type="RigidBody2D"]
+[node name="Enemy" type="RigidBody2D" groups=[
+"Enemy",
+]]
+collision_layer = 8
+collision_mask = 31
 script = ExtResource( 31 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 scale = Vector2( 1.5, 1.5 )
 frames = SubResource( 1 )
 animation = "idle"
-frame = 4
+frame = 6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 1.5892, 7.10471 )

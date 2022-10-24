@@ -8,8 +8,6 @@ func _ready():
 	anim.play("UpDown")
 	
 
-
-
 func _on_Play_pressed():
 	anim.play("Transition")
 	yield(anim,"animation_finished")

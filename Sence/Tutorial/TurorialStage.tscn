@@ -99,8 +99,8 @@ margin_right = 672.104
 margin_bottom = 200.025
 custom_fonts/font = SubResource( 1 )
 text = "Tap anywhere 
-to hit
- the enemy"
+to fall down
+and the enemy"
 __meta__ = {
 "_edit_use_anchors_": false
 }

@@ -5,7 +5,7 @@ class_name TutorialFrog
 const SPEED = 2000
 const JUMP_POWER = 2000
 
-onready var dust = get_node("Dust")
+
 onready var anim = get_node("AnimationTree").get("parameters/playback")
 
 
@@ -48,7 +48,6 @@ func animation():
 func dead():
 	is_dead = true
 	set_deferred("mode",MODE_RIGID)
-	print("dead")
 	$Timer.start()
 
 #  Check collision for wall and groundre
@@ -61,13 +60,11 @@ func _on_FrogArea_body_entered(body):
 				dead()
 	
 	if body.name == "Wall":
-		dust.emitting = true
 		if is_dead == false:
 			dead()
 
 
 	if body.name == "Handle":
-		print("handle")
 		get_parent().iso = true
 
 func stop():
@@ -77,12 +74,9 @@ func stop():
 func _on_FrogArea_body_exited(body):
 	if body.name == "Ground":
 		on_ground = false
-		print("of_ground")
 
 
 func _on_Timer_timeout():
 	queue_free()
 
 
-func _on_FrogArea_area_entered(area):
-	pass # Replace with function body.

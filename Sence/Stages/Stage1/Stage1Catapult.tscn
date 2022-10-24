@@ -1,0 +1,122 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Sence/Terrain/Terrain1.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Sence/Machine/Catapult.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Sence/HUD/CatapultHUD.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Sence/Terrain/TerrainStucture.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Sence/Stages/Stage1/Stage1Catapult.gd" type="Script" id=5]
+[ext_resource path="res://Assets/Fonts/flappyfont.TTF" type="DynamicFontData" id=6]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 13.8755, 275.668 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 32
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 6 )
+
+[node name="Stage1Catapult" type="Node2D"]
+script = ExtResource( 5 )
+
+[node name="BackGround" type="Node2D" parent="."]
+
+[node name="ColorRect3" type="ColorRect" parent="BackGround"]
+margin_top = -80.0
+margin_right = 489.0
+margin_bottom = 630.0
+color = Color( 1, 0.980392, 0.545098, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="BackGround"]
+margin_left = -30.0
+margin_top = 453.0
+margin_right = 413.0
+margin_bottom = 810.0
+color = Color( 0.196078, 0.0941176, 0.0156863, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect4" type="ColorRect" parent="BackGround"]
+margin_left = 322.0
+margin_top = 353.0
+margin_right = 413.0
+margin_bottom = 810.0
+color = Color( 0.196078, 0.0941176, 0.0156863, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect5" type="ColorRect" parent="BackGround"]
+margin_left = 4.0
+margin_top = -23.0
+margin_right = 479.0
+margin_bottom = 32.0
+color = Color( 0.196078, 0.0941176, 0.0156863, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect2" type="ColorRect" parent="BackGround"]
+margin_left = 7.0
+margin_top = 104.0
+margin_right = 57.0
+margin_bottom = 833.0
+color = Color( 0.196078, 0.0941176, 0.0156863, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tileset" type="Node2D" parent="."]
+
+[node name="TerrainStucture" parent="Tileset" instance=ExtResource( 4 )]
+tile_data = PoolIntArray( 1638405, 8, 0, 1638415, 9, 0, 1703949, 9, 0, 1703954, 4, 0, 1769489, 5, 0 )
+
+[node name="Ground" parent="Tileset" instance=ExtResource( 1 )]
+tile_data = PoolIntArray( 262141, 0, 0, 262142, 0, 0, 262143, 0, 0, 196608, 0, 0, 196609, 0, 0, 589835, 5, 0, 655370, 5, 0, 720907, 1, 0, 917504, 1, 0, 917505, 1, 0, 917506, 0, 0, 917507, 0, 0, 917508, 0, 0, 917509, 0, 0, 917510, 0, 0, 917511, 0, 0, 917512, 0, 0, 917513, 0, 0, 917514, 1, 0, 917515, 1, 0, 917516, 1, 0, 983040, 1, 0, 983041, 1, 0, 983042, 1, 0, 983043, 1, 0, 983044, 1, 0, 983045, 1, 0, 983046, 1, 0, 983047, 1, 0, 983048, 1, 0, 983049, 1, 0, 983050, 1, 0, 983051, 1, 0, 983052, 1, 0, 1048576, 1, 0, 1048577, 1, 0, 1048578, 1, 0, 1048579, 1, 0, 1048580, 1, 0, 1048581, 1, 0, 1048582, 1, 0, 1048583, 1, 0, 1048584, 1, 0, 1048585, 1, 0, 1048586, 1, 0, 1048587, 1, 0, 1048588, 1, 0, 1114112, 1, 0, 1114113, 1, 0, 1114114, 1, 0, 1114115, 1, 0, 1114116, 1, 0, 1114117, 1, 0, 1114118, 1, 0, 1114119, 1, 0, 1114120, 1, 0, 1114121, 1, 0, 1114122, 1, 0, 1114123, 1, 0, 1114124, 1, 0, 1179648, 1, 0, 1179649, 1, 0, 1179650, 1, 0, 1179651, 1, 0, 1179652, 1, 0, 1179653, 1, 0, 1179654, 1, 0, 1179655, 1, 0, 1179656, 1, 0, 1179657, 1, 0, 1179658, 1, 0, 1179659, 1, 0, 1179660, 1, 0, 1245184, 1, 0, 1245185, 1, 0, 1245186, 1, 0, 1245187, 1, 0, 1245188, 1, 0, 1245189, 1, 0, 1245190, 1, 0, 1245191, 1, 0, 1245192, 1, 0, 1245193, 1, 0, 1245194, 1, 0, 1245195, 1, 0, 1245196, 1, 0, 1310720, 1, 0, 1310721, 1, 0, 1310722, 1, 0, 1310723, 1, 0, 1310724, 1, 0, 1310725, 1, 0, 1310726, 1, 0, 1310727, 1, 0, 1310728, 1, 0, 1310729, 1, 0, 1310730, 1, 0, 1310731, 1, 0, 1310732, 1, 0, 1376256, 1, 0, 1376257, 1, 0, 1376258, 1, 0, 1376259, 1, 0, 1376260, 1, 0, 1376261, 1, 0, 1376262, 1, 0, 1376263, 1, 0, 1376264, 1, 0, 1376265, 1, 0, 1376266, 1, 0, 1376267, 1, 0, 1376268, 1, 0, 1441792, 1, 0, 1441793, 1, 0, 1441794, 1, 0, 1441795, 1, 0, 1441796, 1, 0, 1441797, 1, 0, 1441798, 1, 0, 1441799, 1, 0, 1441800, 1, 0, 1441801, 1, 0, 1441802, 1, 0, 1441803, 1, 0, 1441804, 1, 0, 1507328, 1, 0, 1507329, 1, 0, 1507330, 1, 0, 1507331, 1, 0, 1507332, 1, 0, 1507333, 1, 0, 1507334, 1, 0, 1507335, 1, 0, 1507336, 1, 0, 1507337, 1, 0, 1507338, 1, 0, 1507339, 1, 0, 1507340, 1, 0 )
+
+[node name="Wall" parent="Tileset" instance=ExtResource( 1 )]
+tile_data = PoolIntArray( 0, 1, 0, 1, 1, 0, 2, 1, 0, 3, 1, 0, 4, 1, 0, 5, 1, 0, 6, 1, 0, 7, 1, 0, 8, 1, 0, 9, 1, 0, 10, 1, 0, 11, 1, 0, 12, 1, 0, 13, 1, 0, 14, 1, 0, 262144, 1, 0, 262145, 1, 0, 327680, 1, 0, 327681, 1, 0, 393216, 1, 0, 393217, 1, 0, 458752, 1, 0, 458753, 1, 0, 524288, 1, 0, 524289, 1, 0, 589824, 1, 0, 589825, 1, 0, 655360, 1, 0, 655361, 1, 0, 655371, 4, 0, 720896, 1, 0, 720897, 1, 0, 720906, 4, 0, 786432, 1, 0, 786433, 1, 0, 786442, 1, 0, 786443, 1, 0, 786444, 1, 0, 851968, 1, 0, 851969, 1, 0, 851978, 1, 0, 851979, 1, 0, 851980, 1, 0 )
+
+[node name="CataputlHUD" parent="." instance=ExtResource( 3 )]
+
+[node name="Catapult" parent="." instance=ExtResource( 2 )]
+position = Vector2( 174.886, 416.164 )
+
+[node name="CrossLine" type="Area2D" parent="."]
+position = Vector2( 403.045, 199.275 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CrossLine"]
+shape = SubResource( 1 )
+
+[node name="SpawnPosition" type="Position2D" parent="."]
+position = Vector2( -62.5083, 72.0436 )
+
+[node name="FrogContainer" type="Node2D" parent="."]
+
+[node name="Label" type="Label" parent="."]
+margin_left = 95.754
+margin_top = 196.548
+margin_right = 321.754
+margin_bottom = 265.548
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.333333, 0.843137, 0.0705882, 1 )
+custom_colors/font_outline_modulate = Color( 1, 1, 1, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "Game Start In
+3"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="body_entered" from="CrossLine" to="." method="_on_CrossLine_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

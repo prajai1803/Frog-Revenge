@@ -3,17 +3,19 @@ extends RigidBody2D
 
 const SPEED = 6000
 
-
+var id = "Frog"
 var is_attack = false
 var stoped = false
 
-onready var dust = get_node("Dust")
+
 onready var anim = get_node("AnimationTree").get("parameters/playback")
 onready var camera = get_node("Camera2D")
 
 func _ready():
 	initial_state()
 
+func get_id():
+	return id
 
 func initial_state():
 	rotation_degrees = 90
@@ -44,21 +46,22 @@ func movement(delta):
 
 func not_process():
 	set_physics_process(false)
-	print("prakhar")
+
 
 func yes_process():
 	set_physics_process(true)
 
 func _on_FrogArea_body_entered(body):
 	if body.name == "Wall":
-		dust.emitting = true
+		pass
 	
 	if body.name == "Ground":
-		dust.emitting = true
+		pass
 
 
 func _on_FrogArea_body_exited(body):
-	pass # Replace with function body.
+	if body is RigidBody2D:
+		pass
 
 
 

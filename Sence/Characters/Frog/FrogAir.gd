@@ -3,19 +3,24 @@ extends RigidBody2D
 
 const SPEED = 6000
 
-signal dead
 
+var id = "Frog"
 var touch_count = 0
 var is_attack = false
 var touch = false
 
+var Dust = preload("res://Sence/Enviroments/Dust.tscn")
 
-onready var dust = get_node("Dust")
 onready var anim = get_node("AnimationTree").get("parameters/playback")
 onready var camera = get_node("Camera2D")
 
+
 func _ready():
 	initial_state()
+
+
+func get_id():
+	return id
 
 
 func initial_state():
@@ -43,9 +48,16 @@ func _input(event):
 
 func dead():
 	anim.travel("dead")
-	yield(get_tree().create_timer(3),"timeout")
+	var timer = Timer.new()
+	add_child(timer)
+	timer.start(3)
+	yield(timer,"timeout")
+	hide()
+	timer.start(2)
+	#yield(get_tree().create_timer(2),"timeout")
+	yield(timer,"timeout")
+	get_parent().get_parent().spawn_frog("normal")
 	queue_free()
-	get_parent().next_spwan()
 
 
 func attack(delta):
@@ -64,22 +76,22 @@ func movement(delta):
 
 func _on_FrogArea_body_entered(body):
 	if body.name == "Wall":
-		dust.emitting = true
+		dust_emit()
 		dead()
+		
 
 	if body.name == "Ground":
-		dust.emitting = true
+		dust_emit()
 		dead()
+func dust_emit():
+	var dust = Dust.instance()
+	get_parent().get_parent().call_deferred("add_child",dust)
+	dust.emitting = true
+	dust.position = global_position
 
-
-func vanish():
-	queue_free()
-
-func _on_FrogArea_body_exited(body):
+func _on_FrogArea_body_exited(_body):
 	pass # Replace with function body.
 
 
-func _on_FrogArea_area_entered(area):
-	if area.name == "CrossLine":
-		vanish()
-		get_parent().re_spwan()
+
+

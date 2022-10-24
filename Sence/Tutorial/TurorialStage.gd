@@ -8,7 +8,7 @@ onready var frog = $Frog
 func _ready():
 	pass
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if frog.global_position.x > 500:
 		frog.stop()
 
@@ -23,4 +23,4 @@ func _on_Enemy_dead():
 	$Label.text = "Tutorial \nComplete"
 	$AnimationPlayer.play("Transition")
 	yield($AnimationPlayer,"animation_finished")
-	var sence = get_tree().change_scene("res://Sence/Menu/StartMenu.tscn")
+	var _sence = get_tree().change_scene("res://Sence/Menu/StartMenu.tscn")

@@ -5,9 +5,20 @@ class_name Frog
 const SPEED = 2000
 const JUMP_POWER = 2000
 
-onready var dust = get_node("Dust")
-onready var anim = get_node("AnimationTree").get("parameters/playback")
+var Dust = preload("res://Sence/Enviroments/Dust.tscn")
 
+const TYPES = {
+	normal = "normal",
+	fire = "fire",
+}
+
+
+
+
+onready var anim = get_node("AnimationTree").get("parameters/playback")
+onready var _timer = get_node("Timer")
+
+signal dead
 
 var on_ground = false
 var hited = false
@@ -26,14 +37,9 @@ func _physics_process(delta):
 
 
 
-
-
-
 func run(delta):
 	if on_ground == true and hited == false:
 		linear_velocity.x = SPEED * delta
-
-
 
 func animation():
 	if on_ground == true and hited == false and linear_velocity.x <= 0 and is_dead == false:
@@ -50,12 +56,16 @@ func animation():
 func dead():
 	is_dead = true
 	set_deferred("mode",MODE_RIGID)
-	print("dead")
-	$Timer.start()
+	emit_signal("dead")
+	print("frog dead")
+	yield(get_tree().create_timer(3),"timeout")
+	queue_free()
 
 #  Check collision for wall and groundre
 func _on_FrogArea_body_entered(body):
 	if body.name == "Ground":
+		dust_emit()
+		_timer.start()
 		on_ground = true
 		ground_count += 1
 		if ground_count > 1:
@@ -63,16 +73,23 @@ func _on_FrogArea_body_entered(body):
 				dead()
 	
 	if body.name == "Wall":
-		dust.emitting = true
+		dust_emit()
 		if is_dead == false:
 			dead()
 	
 	if body.name == "Handle":
-		pass
+		ground_count += 1
 
+func dust_emit():
+	var dust = Dust.instance()
+	get_parent().get_parent().call_deferred("add_child",dust)
+	dust.position = global_position
 
 #  Check collision for wall and ground
 func _on_FrogArea_body_exited(body):
 	if body.name == "Ground":
 		on_ground = false
-		print("of_ground")
+
+
+func _on_Timer_timeout():
+	dead()

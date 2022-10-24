@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Sence/Terrain/Terrain1.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Sence/Terrain/TerrainStucture.tscn" type="PackedScene" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://Sence/HUD/CatapultHUD.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Sence/Tutorial/TutorialCatapult.gd" type="Script" id=6]
 [ext_resource path="res://Assets/Fonts/flappyfont.TTF" type="DynamicFontData" id=7]
+[ext_resource path="res://Sence/Tutorial/TutorialFrog.gd" type="Script" id=8]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 10, 240.27 )
@@ -82,6 +83,7 @@ position = Vector2( 190, 485.782 )
 
 [node name="Frog" parent="." instance=ExtResource( 4 )]
 position = Vector2( 45.2549, 87.6813 )
+script = ExtResource( 8 )
 
 [node name="ColorRect4" type="ColorRect" parent="."]
 margin_right = 392.0
@@ -113,7 +115,7 @@ custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0.211765, 0.552941, 0.0352941, 1 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
-text = "Game START IN
+text = "GAME START IN
 3"
 align = 1
 __meta__ = {

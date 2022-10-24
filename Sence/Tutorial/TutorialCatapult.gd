@@ -10,7 +10,7 @@ func _ready():
 	$CataputlHUD/Control/HBoxContainer/Right.hide()
 	$CataputlHUD/Control/HBoxContainer/Hit.hide()
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if $Frog.is_dead == false:
 		if $Frog.global_position.y > 442 and iso == false:
 			$Frog.set_deferred("mode",RigidBody2D.MODE_KINEMATIC)
@@ -33,11 +33,10 @@ func _on_CrossLine_body_entered(body):
 			body.dead()
 		$AnimationPlayer.play("Transition")
 		yield($AnimationPlayer,"animation_finished")
-		var sence = get_tree().change_scene("res://Sence/Tutorial/TurorialStage.tscn")
+		var _sence = get_tree().change_scene("res://Sence/Tutorial/TurorialStage.tscn")
 
 
 func _on_Timer_timeout():
-	print("hey")
 	count -= 1
 	update_label(count)
 	if count <0:
