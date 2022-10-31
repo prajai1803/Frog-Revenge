@@ -7,8 +7,9 @@ onready var frog_container : Node2D = get_node("FrogContainer")
 onready var label : Label= get_node("Label")
 onready var timer : Timer = get_node("Timer")
 
-var _frog_count:int = 1
-var total_frog_send:int = 0
+
+var _frog_count:int = 3
+var frog_list = []
 var count:int= 3
 
 func _ready():
@@ -18,21 +19,20 @@ func _initilize_game() -> void:
 	timer.start()
 
 func _validate_container() -> void:
-	print(_frog_count)
 	if frog_container.get_child_count() != 1:
 		pass
 	else:
 		if _frog_count != 0:
-			_spwan_frog('normal')
+			_spwan_frog()
 		elif _frog_count == 0:
 			yield(get_tree().create_timer(4),"timeout")
+			Global.set_frog_list(frog_list)
 			var _sence = get_tree().change_scene("res://Sence/Stages/Stage1/Stage1.tscn")
 
 
 
-func _spwan_frog(type) -> void:
+func _spwan_frog() -> void:
 	var frog = Frog.instance()
-	frog.TYPES[type]
 	frog_container.call_deferred("add_child",frog)
 	frog.connect("dead",self,"_validate_frog_death")
 	frog.position = $SpawnPosition.global_position
@@ -46,7 +46,8 @@ func _validate_frog_death() -> void :
 func _on_CrossLine_body_entered(body) -> void:
 	if body is RigidBody2D:
 		body.queue_free()
-		total_frog_send += 1
+		frog_list.append(body.get_type())
+		print(frog_list)
 		_validate_container()
 
 func update_label(label_count : int):
@@ -61,7 +62,7 @@ func _on_Timer_timeout():
 		game_start()
 
 func game_start():
-	_spwan_frog("normal")
+	_spwan_frog()
 
 
 	

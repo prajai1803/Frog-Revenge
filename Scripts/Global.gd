@@ -3,6 +3,8 @@ extends Node
 
 const SAVE_PATH = "user://game_data.save"
 
+var frog_list = [] setget set_frog_list, get_frog_list
+
 const GAME_DATA = {
 	"stage1" : {
 		"camera_limit_right" : 0,
@@ -11,8 +13,11 @@ const GAME_DATA = {
 	},
 }
 
+func get_frog_list():
+	return frog_list
 
-
+func set_frog_list(list):
+	frog_list = list
 
 func save_data():
 	var file = File.new()

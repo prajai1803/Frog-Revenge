@@ -7,13 +7,7 @@ const JUMP_POWER = 2000
 
 var Dust = preload("res://Sence/Enviroments/Dust.tscn")
 
-const TYPES = {
-	normal = "normal",
-	fire = "fire",
-}
-
-
-
+export(int,"NORMAL", "FIRE") var TYPES = 0
 
 onready var anim = get_node("AnimationTree").get("parameters/playback")
 onready var _timer = get_node("Timer")
@@ -26,9 +20,14 @@ var ground_count = 0
 var is_dead = false
 
 
+
+
 func _ready():
 	set_deferred("mode",MODE_CHARACTER)
-	
+	print()
+
+func get_type():
+	return TYPES
 
 func _physics_process(delta):
 	if is_dead != true:

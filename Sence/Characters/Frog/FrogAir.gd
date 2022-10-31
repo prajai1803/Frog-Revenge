@@ -3,6 +3,7 @@ extends RigidBody2D
 
 const SPEED = 6000
 
+signal dead
 
 var id = "Frog"
 var touch_count = 0
@@ -54,9 +55,8 @@ func dead():
 	yield(timer,"timeout")
 	hide()
 	timer.start(2)
-	#yield(get_tree().create_timer(2),"timeout")
 	yield(timer,"timeout")
-	get_parent().get_parent().spawn_frog("normal")
+	emit_signal("dead")
 	queue_free()
 
 
